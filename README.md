@@ -6,6 +6,7 @@ Canoe is a Python implementation of the Raft consensus algorithm. It currently u
 
 # Todo
 
+ - [ ] Get that test coverage up.
  - [ ] Log replication. A lot of the log replication work is already implemented as a by product of leader election.
  - [ ] Log compaction.
  - [ ] Snapshots.
