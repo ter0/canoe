@@ -13,3 +13,18 @@ Canoe is a Python implementation of the Raft consensus algorithm. It currently u
  - [ ] Remove the dependency on zerorpc. zerorpc is a fantastic tool but some of its features, such as message queueing and heartbeats, are not necessary for an implementation of Raft. The plan is to remove this hard dependency and implement a pluggable RPC layer. First pass should just be TCP sockets.
  - [ ] Build a proof of concept key value store on top of Canoe. This will be a separate project, but will provide a nice, simple example of using Canoe to build a distributed system.
  - [ ] Write an intro guide to using Canoe. The [Read The Docs](http://canoe.readthedocs.io/en/latest) page is currently just the API docs.
+
+# RPC Protocol Notes
+Some notes on removing the zerorpc dependency and replacing it with a plain TCP socket layer.
+
+- First 8 bytes of a message are a byte encoded integer length `n`
+- Following `n` bytes are a msgpack'd payload
+
+The payload is a list, with the following fields:
+┌────────┬───────────┬──────────────────────┐
+│ Index  │     0     │         1..n         │
+├────────┼───────────┼──────────────────────┤
+│ Desc   │ Call Type │ RPC Args             │
+├────────┼───────────┼──────────────────────┤
+│ Sample │     0     │ 14, 'abc', 96, 74... │
+└────────┴───────────┴──────────────────────┘
