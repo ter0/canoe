@@ -21,10 +21,8 @@ Some notes on removing the zerorpc dependency and replacing it with a plain TCP 
 - Following `n` bytes are a msgpack'd payload
 
 The payload is a list, with the following fields:
-┌────────┬───────────┬──────────────────────┐
-│ Index  │     0     │         1..n         │
-├────────┼───────────┼──────────────────────┤
-│ Desc   │ Call Type │ RPC Args             │
-├────────┼───────────┼──────────────────────┤
-│ Sample │     0     │ 14, 'abc', 96, 74... │
-└────────┴───────────┴──────────────────────┘
+
+| Index        | 0         | 1..n                 |
+|--------------|-----------|----------------------|
+| Description  | Call Type | RPC Args             |
+| Sample Value | 0         | 14, 'abc', 96, 74... |
