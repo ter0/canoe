@@ -37,10 +37,10 @@ class RaftTerm:
 
     @current_term.setter
     def current_term(self, current_term: int):
-        log.info('set_current_term', old_term=self._current_term, new_term=current_term)
+        log.info("set_current_term", old_term=self._current_term, new_term=current_term)
         # ensure current_term is monotonically increasing
         if current_term < self._current_term:
-            raise AttributeError('current_term must be monotonically increasing')
+            raise AttributeError("current_term must be monotonically increasing")
         elif current_term > self._current_term:
             # if term has increased, reset votes issued and received
             self._current_term = current_term

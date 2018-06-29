@@ -1,18 +1,13 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [packages]
-
 zerorpc = "*"
 structlog = "*"
 
-
 [dev-packages]
-
 pytest = "*"
 pylint = "*"
 isort = "*"
@@ -20,8 +15,7 @@ isort = "*"
 sphinx = "*"
 sphinx-rtd-theme = "*"
 pytest-cov = "*"
-
+black = "*"
 
 [requires]
-
 python_version = "3.6"
