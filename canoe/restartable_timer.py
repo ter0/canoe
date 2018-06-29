@@ -1,6 +1,7 @@
 from threading import Timer
 from typing import Callable
 
+
 class RestartableTimer:
     """A wrapper around ``threading.Timer`` that provides a restart mechanism.
 
